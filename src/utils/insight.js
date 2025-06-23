@@ -1,27 +1,8 @@
-export function groupSimilarLogs(logs, threshold = 0.6) {
-  const groups = [];
-
-  function similarity(a, b) {
-    if (!a || !b) return 0;
-    let matches = 0;
-    const minLen = Math.min(a.length, b.length);
-    for (let i = 0; i < minLen; i++) {
-      if (a[i] === b[i]) matches++;
-    }
-    return matches / minLen;
-  }
-
+export function getMostCommonError(logs) {
+  const counter = {};
   logs.forEach(log => {
-    const match = groups.find(group =>
-      similarity(group.representative.message, log.message) >= threshold
-    );
-
-    if (match) {
-      match.logs.push(log);
-    } else {
-      groups.push({ representative: log, logs: [log] });
-    }
+    const msg = log.message ?? 'Unknown';
+    counter[msg] = (counter[msg] || 0) + 1;
   });
-
-  return groups;
+  return Object.entries(counter).sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
 }

@@ -1,27 +1,9 @@
-export function groupSimilarLogs(logs, threshold = 0.6) {
-  const groups = [];
-
-  function similarity(a, b) {
-    if (!a || !b) return 0;
-    let matches = 0;
-    const shorter = a.length < b.length ? a : b;
-    for (let i = 0; i < shorter.length; i++) {
-      if (a[i] === b[i]) matches++;
-    }
-    return matches / shorter.length;
-  }
-
-  logs.forEach((log) => {
-    const match = groups.find((group) =>
-      similarity(group.representative.message, log.message) >= threshold
-    );
-
-    if (match) {
-      match.logs.push(log);
-    } else {
-      groups.push({ representative: log, logs: [log] });
-    }
+export function groupByError(logs) {
+  const groups = {};
+  logs.forEach(log => {
+    const key = log.message?.split(':')[0]?.trim() || 'Unknown';
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(log);
   });
-
   return groups;
 }

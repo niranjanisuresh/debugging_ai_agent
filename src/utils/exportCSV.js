@@ -1,22 +1,13 @@
-import Papa from 'papaparse';
+export function exportToCSV(data, filename = 'debug_logs.csv') {
+  const headers = Object.keys(data[0]);
+  const csvRows = [
+    headers.join(','), // header row
+    ...data.map(row => headers.map(field => JSON.stringify(row[field] ?? '')).join(',')),
+  ];
+  const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
 
-export function exportLogsToCSV(logs) {
-  const csv = Papa.unparse(
-    logs.map(log => ({
-      Type: log.type,
-      Message: log.message,
-      Stack: log.stack,
-      Timestamp: log.timestamp
-    }))
-  );
-
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `debug-logs-${Date.now()}.csv`;
-  a.click();
-
-  URL.revokeObjectURL(url);
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  link.click();
 }

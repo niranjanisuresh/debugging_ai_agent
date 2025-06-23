@@ -1,27 +1,26 @@
-html, body, #root {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  background-color: #f9fafb;      /* Off-white background */
-  color: #1e293b;                 /* Deep slate for main text */
+/* Root container centering the chatbot */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #dbeafe; /* Light blue background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Links */
-a {
-  color: #d97706;                 /* Amber for visibility */
+/* Resetting global box model and typography */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #dbeafe;
+  color: #1e293b;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-a:hover {
-  color: #b45309;                 /* Darker amber on hover */
-}
-
-/* Buttons */
-button {
-  background-color: #0f766e;      /* Teal: professional + contrast */
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-weight: 500;
-}
-
-button:hover {
-  background-color: #115e59;
+/* Ensures all child elements follow border-box layout */
+* {
+  box-sizing: inherit;
 }
