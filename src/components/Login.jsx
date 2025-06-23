@@ -16,7 +16,7 @@ function Login() {
         {
           name: user.displayName,
           email: user.email,
-          role: 'user'
+          role: 'user',
         },
         { merge: true }
       );

@@ -5,6 +5,8 @@ import { auth, db } from './firebaseConfig';
 import Login from './components/Login';           // 🔥 make sure this points to the new Login.jsx
 import Dashboard from './components/Dashboard';   // your main dashboard component
 
+
+
 function App() {
   const [user, setUser] = useState(null);
   const [role, setRole] = useState(null);
