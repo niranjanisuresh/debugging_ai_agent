@@ -1,4 +1,4 @@
-/* Global reset */
+/* Reset root layout */
 html, body, #root {
   margin: 0;
   padding: 0;
@@ -7,6 +7,8 @@ html, body, #root {
   font-family: 'Segoe UI', sans-serif;
   background-color: #000; /* fallback */
 }
+
+/* Full-page background with blur + image */
 .login-container {
   height: 100vh;
   width: 100%;
@@ -15,14 +17,13 @@ html, body, #root {
   align-items: center;
   position: relative;
 
-  background: 
+  background:
     linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(59, 130, 246, 0.3)),
     url('/debug-loop-bg.jpg') center center / cover no-repeat;
   background-attachment: fixed;
 }
 
-
-/* Optional blur layer */
+/* Optional overlay blur */
 .login-container::before {
   content: '';
   position: absolute;
@@ -31,7 +32,7 @@ html, body, #root {
   z-index: 1;
 }
 
-/* Main Card */
+/* Centered login card */
 .login-card {
   z-index: 2;
   background: rgba(255, 255, 255, 0.08);
@@ -45,7 +46,7 @@ html, body, #root {
   color: #fff;
 }
 
-/* Branding */
+/* Brand styling */
 .logo-brand {
   display: flex;
   align-items: center;
@@ -63,28 +64,31 @@ html, body, #root {
 /* Tagline */
 .tagline {
   font-size: 1rem;
-  opacity: 0.8;
+  opacity: 0.85;
   margin-bottom: 2rem;
 }
 
-/* Google Button */
+/* Smaller, cleaner Google login button */
 .login-btn {
   background-color: #1d4ed8;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 14px 24px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
   transition: background 0.3s ease;
+  display: inline-block;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .login-btn:hover {
   background-color: #2563eb;
 }
 
-/* Responsive enhancement */
+/* Responsive wideness on large screens */
 @media (min-width: 1200px) {
   .login-card {
     max-width: 900px;
