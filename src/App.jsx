@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from './firebaseConfig';
-import Login from './components/Login';           // 🔥 make sure this points to the new Login.jsx
-import Dashboard from './components/Dashboard';   // your main dashboard component
+import Login from './components-old/Login';           // 🔥 make sure this points to the new Login.jsx
+import Dashboard from './components-old/Dashboard';   // your main dashboard component
 
 
 

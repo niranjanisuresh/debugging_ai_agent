@@ -1,63 +1,27 @@
-/* Reset + Base layout */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html, body, #root {
-  height: 100%;
-  width: 100%;
   font-family: 'Inter', 'Segoe UI', sans-serif;
-  background-color: #f3f4f6; /* Soft gray background */
-  color: #111827; /* Deep slate text */
-}
-
-/* Utility spacing */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* Headings */
-h1, h2, h3, h4 {
-  color: #1f2937; /* Dark slate */
+  background-color: #f9fafb;      /* Off-white background */
+  color: #1e293b;                 /* Deep slate for main text */
 }
 
 /* Links */
 a {
-  color: #2563eb;
-  text-decoration: none;
+  color: #d97706;                 /* Amber for visibility */
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #b45309;                 /* Darker amber on hover */
 }
 
-/* Buttons (default theme-wide) */
+/* Buttons */
 button {
-  background-color: #2563eb;
+  background-color: #0f766e;      /* Teal: professional + contrast */
   color: #fff;
   padding: 10px 16px;
-  border: none;
   border-radius: 6px;
-  font-size: 0.95rem;
   font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 button:hover {
-  background-color: #1d4ed8;
-}
-
-/* Scrollbar for desktop finesse */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1;
-  border-radius: 10px;
+  background-color: #115e59;
 }
