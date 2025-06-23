@@ -32,19 +32,24 @@ html, body, #root {
   z-index: 1;
 }
 
-/* Centered login card */
 .login-card {
   z-index: 2;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(14px);
-  padding: 3rem 4rem;
+  padding: 3rem;
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   text-align: center;
+
   width: 100%;
-  max-width: 700px;
-  color: #fff;
+  max-width: 400px;  /* tighter width */
+  height: 400px;     /* set height to match width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 
 /* Brand styling */
 .logo-brand {
