@@ -7,8 +7,6 @@ html, body, #root {
   font-family: 'Segoe UI', sans-serif;
   background-color: #000; /* fallback */
 }
-
-/* Login Background */
 .login-container {
   height: 100vh;
   width: 100%;
@@ -16,11 +14,13 @@ html, body, #root {
   justify-content: center;
   align-items: center;
   position: relative;
+
   background: 
-  linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 68, 255, 0.3)),
-  url('newpic.jpeg') center center / cover no-repeat;
+    linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(59, 130, 246, 0.3)),
+    url('/debug-loop-bg.jpg') center center / cover no-repeat;
   background-attachment: fixed;
 }
+
 
 /* Optional blur layer */
 .login-container::before {
