@@ -18,7 +18,7 @@ html, body, #root {
   position: relative;
   background: 
   linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 68, 255, 0.3)),
-  url('20250624_013247.png') center center / cover no-repeat;
+  url('newpic.jpeg') center center / cover no-repeat;
   background-attachment: fixed;
 }
 
