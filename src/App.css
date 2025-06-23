@@ -1,56 +1,63 @@
-body {
+/* Reset + Base layout */
+* {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App {
-  max-width: 960px;
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #f3f4f6; /* Soft gray background */
+  color: #111827; /* Deep slate text */
+}
+
+/* Utility spacing */
+.container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 2rem;
+/* Headings */
+h1, h2, h3, h4 {
+  color: #1f2937; /* Dark slate */
 }
 
-header h1 {
-  font-size: 2.5rem;
-  color: #0077cc;
+/* Links */
+a {
+  color: #2563eb;
+  text-decoration: none;
 }
 
-header p {
-  font-size: 1.1rem;
-  color: #555;
+a:hover {
+  text-decoration: underline;
 }
 
+/* Buttons (default theme-wide) */
 button {
+  background-color: #2563eb;
+  color: #fff;
   padding: 10px 16px;
-  font-size: 1rem;
-  background-color: #0077cc;
-  color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease;
 }
 
 button:hover {
-  background-color: #005fa3;
+  background-color: #1d4ed8;
 }
 
-footer {
-  margin-top: 4rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #888;
+/* Scrollbar for desktop finesse */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-pre {
-  background-color: #f1f1f1;
-  padding: 0.5rem;
-  border-radius: 4px;
-  overflow-x: auto;
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
 }
