@@ -1,39 +1,31 @@
-import React from 'react';
-import './App.css';
-import ErrorBoundary from './components/ErrorBoundary';
-import Dashboard from './components/Dashboard';
-import CrashSimulator from './components/CrashSimulator';
-import ExportLogs from './components/ExportLogs';
-
-
-
+import React, { useEffect, useState } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { auth, db } from './firebaseConfig';
+import Login from './components/Login';           // 🔥 make sure this points to the new Login.jsx
+import Dashboard from './components/Dashboard';   // your main dashboard component
 
 function App() {
-  return (
-    <div className="App">
-      <header style={{ textAlign: 'center', marginTop: '20px' }}>
-        <h1> Debugging AI Agent</h1>
-        <p>Your friendly bug catcher that logs, clusters, and learns.</p>
-      </header>
+  const [user, setUser] = useState(null);
+  const [role, setRole] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-      <main style={{ padding: '20px' }}>
-        <ErrorBoundary>
-          <Dashboard />
-          <CrashSimulator />
-        </ErrorBoundary>
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (u) => {
+      setUser(u);
+      if (u) {
+        const ref = doc(db, 'users', u.uid);
+        const snap = await getDoc(ref);
+        setRole(snap.exists() ? snap.data().role : 'user');
+      }
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
 
-        <div style={{ marginTop: '40px' }}>
-          <ExportLogs />
-        </div>
-      </main>
-
-      <footer style={{ textAlign: 'center', marginTop: '60px', fontSize: '0.9rem', color: '#888' }}>
-        <p>
-          Built by <a href="https://github.com/niranjanisuresh" target="_blank" rel="noreferrer">Niranjani</a> using React + Vite.
-        </p>
-      </footer>
-    </div>
-  );
+  if (loading) return <p className="centered">Loading...</p>;
+  if (!user) return <Login />;
+  return <Dashboard role={role} />;
 }
 
 export default App;
