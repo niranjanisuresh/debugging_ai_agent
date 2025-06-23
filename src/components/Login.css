@@ -16,10 +16,9 @@ html, body, #root {
   justify-content: center;
   align-items: center;
   position: relative;
-
-  background:
-    linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 68, 255, 0.3)),
-    url('/4299571.jpg') center center / cover no-repeat;
+  background: 
+  linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 68, 255, 0.3)),
+  url('20250624_013247.png') center center / cover no-repeat;
   background-attachment: fixed;
 }
 
